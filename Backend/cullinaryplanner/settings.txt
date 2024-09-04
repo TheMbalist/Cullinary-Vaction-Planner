@@ -1,0 +1,4 @@
+root: C:\Users\mbaal\OneDrive\Desktop\Personal\Cullinary-Vaction-Planner\Backend\cullinaryplanner 
+path: C:\Program Files\nodejs 
+arch: 64 
+proxy: none
