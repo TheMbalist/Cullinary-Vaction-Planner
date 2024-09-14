@@ -1,6 +1,6 @@
 package com.example.cullinaryplanner.model;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity

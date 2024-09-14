@@ -2,7 +2,7 @@ package com.example.cullinaryplanner.model;
 
 
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -16,10 +16,13 @@ public class UserSecurity {
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User userid;
-    
+    @Column(name = "username")
     private String username;
+    @Column(name = "password")
     private String password;
+    @Column(name = "email")
     private String email;
+    @Column(name = "profile_picture")
     private String profilePicture;
     
 }
