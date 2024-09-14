@@ -1,4 +1,4 @@
-# Cullinary Vacation Planner
+# Culinary Vacation Planner
 
 <h1>Project Introduction</h1>
 <p>Culinary Vacation Planner is a passion project by a girl who gets nervous at the mere thought of leaving her mom's cozy house but is totally in love with the idea of traveling. For those who, like me, want to explore the world one bite at a time, with the kitchen as your passport, this platform lets you craft itineraries based on your favorite cuisines and dream destinations. The concept came about during a fun brainstorming session with ChatGPT, where I threw out vague ideas, and ChatGPT threw them right back — until this gem caught my eye, and I just knew I had to cook something up. I honestly have no clue if an app like this already exists (it probably does), but hey, this was a blast to build, gave me tons of great practice, and was the perfect excuse to avoid actually going anywhere. Hopefully, the fun I had creating this reflects in your experience using it!</p>
