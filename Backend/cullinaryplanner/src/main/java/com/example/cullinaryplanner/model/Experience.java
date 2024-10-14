@@ -15,7 +15,10 @@ public class Experience {
     @JoinColumn(name = "restaurant_id", nullable = false)
     private Restaurant restaurant;
 
+    @Column(name = "title")
     private String title;
+
+    @Column(name = "description")
     private String description;
 
     @Column(name = "date_time")

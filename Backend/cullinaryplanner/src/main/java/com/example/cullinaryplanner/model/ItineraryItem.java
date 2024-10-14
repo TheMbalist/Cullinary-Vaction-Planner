@@ -20,7 +20,10 @@ public class ItineraryItem {
     @JoinColumn(name = "experience_id")
     private Experience experience;
 
+    @Column(name = "date")
     private Date date;
+    
+    @Column(name = "notes")
     private String notes;
     
 }

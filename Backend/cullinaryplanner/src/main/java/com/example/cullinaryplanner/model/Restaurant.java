@@ -39,6 +39,7 @@ public class Restaurant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "restaurant_id")
     private Integer restaurantId;
 
 

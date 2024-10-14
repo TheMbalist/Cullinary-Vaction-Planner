@@ -18,7 +18,7 @@ public class RestaurantService {
     private RestaurantRepository restaurantRepository;
 
     //Get
-    public List<Restaurant> getAll() {
+    public List<Object[]> getAll() {
         return restaurantRepository.findAll();
     }
 
@@ -29,6 +29,17 @@ public class RestaurantService {
     public List<Object[]> getByCuisineType(Integer cuisineTypeID){
         return restaurantRepository.findCuisineTypeId(cuisineTypeID);
     }
+
+    public List<Object[]> getByLocation(String locationName){
+        return restaurantRepository.findByLocation(locationName);
+    }
+
+
+    public List<Object[]> getByRating(float searchRating) {
+        return restaurantRepository.findByRating(searchRating);
+    }
+    
+
 
     
 }

@@ -15,7 +15,10 @@ public class Itinerary {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
+    @Column(name = "title")
     private String title;
+    
+    @Column(name = "description")
     private String description;
 
     @Column(name = "is_public")

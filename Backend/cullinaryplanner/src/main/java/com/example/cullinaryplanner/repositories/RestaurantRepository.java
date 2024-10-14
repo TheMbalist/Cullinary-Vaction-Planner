@@ -16,10 +16,24 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Integer>
 
     //List<Restaurant> findByCuisineType(CuisineType cuisineType);
     List<Restaurant> findByName(String name);
-    List<Restaurant> findByLocation(String location);
+     //List<Object[]> findByLocation(String location);
     List<Restaurant> findByDescription(String description);
 
-    @Query(value = "SELECT r.Name, r.Location, r.description, r.rating, c.cusine_type FROM Restaurants r INNER JOIN Cusine_Types c ON r.cuisine_type_id = c.cusine_type_id WHERE c.cusine_type_id = :cuisineTypeId", nativeQuery = true)
+    @Query(value = "SELECT r.name, r.location, r.description, r.rating, c.cusine_type FROM Restaurants r INNER JOIN Cusine_Types c ON r.cuisine_type_id = c.cusine_type_id", nativeQuery = true)
+    List findAll();
+
+
+    @Query(value = "SELECT r.name, r.location, r.description, r.rating, c.cusine_type FROM Restaurants r INNER JOIN Cusine_Types c ON r.cuisine_type_id = c.cusine_type_id WHERE c.cusine_type_id = :cuisineTypeId", nativeQuery = true)
       List<Object[]> findCuisineTypeId(Integer cuisineTypeId);
+
+      @Query(value = "SELECT r.name, r.location, r.description, r.rating, c.cusine_type FROM Restaurants r INNER JOIN Cusine_Types c ON r.cuisine_type_id = c.cusine_type_id WHERE r.location = :locationName", nativeQuery = true)
+      List<Object[]> findByLocation(@Param("locationName") String locationName);
+      
+
+
+      @Query(value = "SELECT r.name, r.location, r.description, r.rating, c.cusine_type FROM Restaurants r INNER JOIN Cusine_Types c ON r.cuisine_type_id = c.cusine_type_id WHERE ROUND(r.rating, 1) = ROUND(:searchRating, 1) ", nativeQuery = true)
+     List<Object[]> findByRating(@Param("searchRating") float searchRating);
+
+
 
 }
