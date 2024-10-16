@@ -1,0 +1,29 @@
+<div class="heading-container">
+    <h1 class="page-heading">My Itineraries</h1>
+    <button mat-icon-button color="primary" class="add-itinerary-btn" routerLink="itinerary-form">
+      <mat-icon>add</mat-icon> Add Itinerary
+    </button>
+  </div>
+  
+<div class="masonry-grid">
+    <div class="masonry-item" *ngFor="let itinerary of itineraries">
+      <div class="itinerary-card">
+        <img src="/assets/restaurantimage4.jpg" alt="Random image" class="itinerary-image" />
+        <div class="itinerary-content">
+          <h3>{{ itinerary.title }}</h3>
+          <div class="itinerary-description">
+            <p>{{ itinerary.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+<mat-paginator 
+[length]="totalItineraries" 
+[pageSize]="itemsPerPage" 
+[pageSizeOptions]="[12, 24, 48]" 
+(page)="onPageChange($event)">
+</mat-paginator>

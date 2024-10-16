@@ -1,0 +1,93 @@
+
+
+.heading-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 20px; /* Adjust padding for responsive design */
+  }
+  
+  .page-heading {
+    font-size: 2.5rem;
+    // font-weight: bold;
+    text-align: center;
+    color: #333;
+    flex-grow: 1;
+  }
+  
+  .add-itinerary-btn {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: capitalize;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+  
+    mat-icon {
+      margin-right: 10px;
+      font-size: 1.6rem;
+    }
+  }
+
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Creates a responsive grid */
+  gap: 30px;
+  padding: 20px;
+}
+
+.masonry-item {
+  position: relative;
+  width: 100%;
+  transition: transform 0.2s ease-in-out;
+}
+
+.itinerary-card {
+  position: relative;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.itinerary-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 2px solid #ddd;
+}
+
+.itinerary-content {
+  padding: 15px;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.itinerary-description {
+  display: none; /* Hide the description by default */
+  padding-top: 10px;
+  color: #555;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.itinerary-card:hover .itinerary-description {
+    display: block; /* Make the description visible on hover */
+}
+
+.itinerary-card:hover {
+  transform: scale(1.05); /* Zoom effect when hovered */
+}
+
+

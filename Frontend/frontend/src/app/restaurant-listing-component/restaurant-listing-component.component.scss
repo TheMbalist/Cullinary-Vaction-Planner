@@ -1,0 +1,170 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+/* Inside styles.scss or component SCSS file */
+html {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #888 #f1f1f1; /* Firefox */
+    overflow-y: scroll; /* Enable vertical scrolling */
+  
+}
+
+.filters{
+  display: flex;
+}
+
+.filter-label{
+  margin-left: 20px;
+  margin-top: 20px;
+
+  font-size: 1.3rem;
+}
+
+
+.restaurant-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  .restaurant-card {
+    display: flex;
+    align-items: flex-start;
+    background-color: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  
+    &:hover {
+      transform: scale(1.05);
+    }
+  
+    .restaurant-image {
+      width: 120px;
+      height: 120px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+  
+    .restaurant-details {
+      margin-left: 16px;
+  
+      h3 {
+        margin: 0;
+        font-size: 1.5rem;
+      }
+  
+      .description {
+        font-size: 0.9rem;
+        color: #666;
+        margin: 8px 0;
+      }
+  
+      .rating {
+        display: flex;
+        align-items: center;
+        margin: 8px 0;
+  
+        span {
+          font-weight: bold;
+          margin-right: 4px;
+        }
+  
+        .material-icons {
+            color: grey;
+            transition: color 0.3s ease;
+          }
+      
+          .material-icons.filled {
+            color: gold;
+          }
+
+        //   .material-icons.half::after {
+        //     content: 'half_star'; /* Or you could use custom CSS to render a half-star */
+        //     position: absolute;
+        //     color: gold;
+        //     font-size: 16px;
+        //     top: 0;
+        //     left: 0;
+        //   }
+          
+  
+        &.high-rating {
+          color: #4caf50;
+        }
+  
+        &.medium-rating {
+          color: #ffeb3b;
+        }
+  
+        &.low-rating {
+          color: #f44336;
+        }
+      }
+  
+      .cuisine-type {
+        font-size: 0.9rem;
+        color: #757575;
+      }
+  
+      .location {
+        font-size: 0.9rem;
+        color: #424242;
+  
+        mat-icon {
+          vertical-align: middle;
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+
+  mat-form-field {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 1rem;
+  }
+  
+  mat-select {
+    font-size: 1rem;
+  }
+  
+  mat-option {
+    padding: 0.5rem;
+  }
+
+  /* Hide the checkbox for disabled mat-options only */
+.mat-select-multiple .mat-option.mat-option-disabled .mat-pseudo-checkbox {
+  display: none;
+}
+
+
+
+  /* Custom Scrollbar Styling */
+html::-webkit-scrollbar {
+  width: 20px; /* Width of the scrollbar */
+  height: 10px; /* Height of the horizontal scrollbar */
+}
+
+html::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Track color */
+  border-radius: 150px; /* Rounded corners for the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888; /* Scrollbar thumb color */
+  border-radius: 10px; /* Rounded corners for the thumb */
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Darker thumb color on hover */
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent; /* Optional: makes corner of the scrollbars invisible */
+}
+
+  
+  

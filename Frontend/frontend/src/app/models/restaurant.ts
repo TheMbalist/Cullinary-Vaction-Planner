@@ -6,5 +6,6 @@ export interface Restaurant {
     location: string;
     rating: number;
     price: string;
+    description:string;
   }
   

@@ -1,10 +1,67 @@
-<p>restaurant-listing-component works!</p>
+<!-- <p>restaurant-listing-component works!</p> -->
 
-<div *ngFor="let restaurant of restaurants" class="restaurant-card">
-    <h2>{{ restaurant.name }}</h2>
-    <p>Cuisine: {{ restaurant.cuisineType }}</p>
-    <p>Location: {{ restaurant.location }}</p>
-    <p>Rating: {{ restaurant.rating }}</p>
-    <!-- <p>Price: {{ restaurant.price }}</p> -->
+<html>
+  
+    <div class="my-scrollable-container">
+
+      <div class="filters">
+      <h3 class="filter-label">Filters: </h3>
+
+
+    <mat-form-field appearance="fill">
+  <mat-label>Cuisines</mat-label>
+  <mat-select [(value)]="selectedCuisines" multiple="true" (selectionChange)="onFilterChange()">
+    <mat-option [disabled]="true">Select one or more options.</mat-option>
+    <mat-option *ngFor="let cuisine of cuisines" [value]="cuisine">
+      {{ cuisine }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-form-field appearance="fill">
+  <mat-label>Locations</mat-label>
+  <mat-select [(value)]="selectedLocations" multiple="true" (selectionChange)="onFilterChange()">
+    <mat-option [disabled]="true">Select one or more options.</mat-option>
+    <mat-option *ngFor="let location of locations" [value]="location">
+      {{ location }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+</div>
+
+<div class="restaurant-container">
+  <div class="restaurant-card" *ngFor="let restaurant of filteredRestaurants">
+    <div class="restaurant-info">
+      <img src="/assets/restaurantimage.jpg" alt="{{restaurant.name}}" class="restaurant-image">
+      <div class="restaurant-details">
+        <h3>{{ restaurant.name }}</h3>
+        <p class="description">{{ restaurant.description }}</p>
+        <div class="rating" [ngClass]="getRatingClass(restaurant.rating)">
+          <span>{{ restaurant.rating }} </span>
+          <span *ngFor="let star of [1, 2, 3, 4, 5]" class="material-icons" [ngClass]="getStarClass(restaurant, star)">
+            star
+          </span>
+        </div>
+        <p class="cuisine-type">{{ restaurant.cuisineType }}</p>
+        <p class="location"><mat-icon>location_on</mat-icon> {{ restaurant.location }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="filteredRestaurants.length == 0"> No results found.</div>
+  
+</div>
+  
+
+<mat-paginator 
+[length]="totalRestaurants" 
+[pageSize]="itemsPerPage" 
+[pageSizeOptions]="[8, 16, 32, 64]" 
+(page)="onPageChange($event)">
+</mat-paginator>
+
   </div>
   
+</html>
+
