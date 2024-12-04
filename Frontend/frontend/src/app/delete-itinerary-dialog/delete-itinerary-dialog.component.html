@@ -1,0 +1,17 @@
+<h2 mat-dialog-title class="dialog-title">
+    Are you sure you want to delete this itinerary?
+  </h2>
+  
+  <mat-dialog-content class="dialog-content">
+    <p class="warning-text">This action cannot be undone.</p>
+  </mat-dialog-content>
+  
+  <mat-dialog-actions class="dialog-actions">
+    <button mat-button (click)="onCancel()" class="cancel-btn">
+      Cancel
+    </button>
+    <button mat-raised-button color="warn" class="delete-btn" (click)="deleteItinerary()">
+      Delete
+    </button>
+  </mat-dialog-actions>
+  

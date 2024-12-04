@@ -1,0 +1,31 @@
+<h1>Create Itinerary</h1>
+
+<form (ngSubmit)="saveItinerary()" class="itinerary-form">
+  <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Title</mat-label>
+    <input matInput type="text" [(ngModel)]="itinerary.title" name="title" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Description</mat-label>
+    <textarea matInput [(ngModel)]="itinerary.description" name="description" required></textarea>
+  </mat-form-field>
+
+
+  <div class="visibility-toggle">
+  <mat-label class="visibility-label">Visibility</mat-label>
+    <mat-slide-toggle
+      [(ngModel)]="itinerary.isPublic"
+      name="isPublic"
+      class="public-toggle"
+      color="primary"
+      required
+    > 
+    </mat-slide-toggle>
+  </div>
+  <div class="buttons">
+    <button class="cancel" mat-raised-button color="primary"  type="button" [routerLink]="['/itinerary']">Cancel</button>
+  
+    <button mat-raised-button color="primary" type="submit">Create Itinerary</button>
+  </div>
+</form>

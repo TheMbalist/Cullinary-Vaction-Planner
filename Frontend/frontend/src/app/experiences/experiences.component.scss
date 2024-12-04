@@ -1,0 +1,163 @@
+
+.heading-container {
+  display: flex;
+  justify-content: space-between;
+  //align-items: center;
+  margin-bottom: 20px;
+  padding: 10px 20px; /* Adjust padding for responsive design */
+}
+
+.page-heading {
+  font-size: 2.5rem;
+  // font-weight: bold;
+  text-align: center;
+  align-items: center;
+  color: #333;
+  flex-grow: 1;
+}
+
+.add-itinerary-btn {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-transform: capitalize;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+  }
+
+  mat-icon {
+    margin-right: 10px;
+    font-size: 1.6rem;
+  }
+}
+
+
+.experience-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+
+ 
+  .experience-card {
+    width: 300px;
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    &:hover {
+      transform: scale(1.05); /* Add subtle zoom on hover */
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+      color: white;
+      padding: 20px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end; /* Content stays at the bottom by default */
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+
+      /* Icons at the top right */
+      .itinerary-icons {
+        position: absolute;
+        top: 10px; /* Top padding */
+        right: 10px; /* Right padding */
+        display: flex;
+        gap: 8px; /* Space between the icons */
+        z-index: 2; /* Ensure it stays above other content */
+      }
+
+      .itinerary-icons mat-icon {
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 24px; /* Size of the icons */
+        transition: color 0.3s ease;
+      }
+
+      .itinerary-icons mat-icon:hover {
+        color: #f8c200; /* Change color on hover */
+      }
+
+      /* Default Info: Title, Description, Date, Price */
+      .default-info {
+        position: relative;
+        padding-bottom: 10px;
+        transition: transform 0.3s ease;
+
+        h3, p {
+          margin: 0;
+          font-size: 16px;
+          line-height: 1.5;
+        }
+      }
+
+      /* Hidden Info (Venue Name, Location, and Button) */
+      .hidden-info {
+        position: relative;
+        width: 100%;
+        margin-top: 15px; /* Space between default and hidden info */
+        display: none; /* Hidden by default */
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        transform: translateY(20px); /* Slide up on hover */
+
+        p {
+          font-size: 14px;
+          margin-bottom: 10px;
+          line-height: 1.5;
+        }
+
+        .add-button {
+          background-color: #f39c12;
+          border: none;
+          padding: 10px 15px;
+          color: white;
+          font-size: 14px;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #e67e22;
+          }
+        }
+      }
+
+      /* On hover, show the hidden info and move up the default info */
+      &:hover {
+        .hidden-info {
+          display: block;
+          opacity: 1;
+          transform: translateY(0); /* Align with default info */
+        }
+
+        .default-info {
+          transform: translateY(-20px); /* Slide up slightly to make room */
+        }
+      }
+    }
+  }
+}

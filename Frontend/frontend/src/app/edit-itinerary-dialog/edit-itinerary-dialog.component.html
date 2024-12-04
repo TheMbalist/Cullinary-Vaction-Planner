@@ -1,0 +1,33 @@
+<h2 mat-dialog-title class="dialog-title">Edit Itinerary</h2>
+
+<mat-dialog-content class="dialog-content">
+  <form (ngSubmit)="saveChanges()" #editForm="ngForm">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Title</mat-label>
+      <input matInput type="text" [(ngModel)]="data.title" name="title" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Description</mat-label>
+      <textarea matInput [(ngModel)]="data.description" name="description" required></textarea>
+    </mat-form-field>
+  </form>
+
+  
+  <div class="visibility-toggle">
+    <mat-label class="visibility-label">Visibility</mat-label>
+      <mat-slide-toggle
+        [(ngModel)]="data.isPublic"
+        name="isPublic"
+        class="public-toggle"
+        color="primary"
+        required
+      > 
+      </mat-slide-toggle>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+  <button mat-button (click)="onCancel()" class="cancel-btn">Cancel</button>
+  <button mat-raised-button color="primary" (click)="saveChanges()" class="save-btn">Save Changes</button>
+</mat-dialog-actions>

@@ -1,5 +1,6 @@
 package com.example.cullinaryplanner.services;
 
+import com.example.cullinaryplanner.interfaces.RestaurantProjection;
 import com.example.cullinaryplanner.model.*;
 import com.example.cullinaryplanner.repositories.RestaurantRepository;
 
@@ -18,8 +19,12 @@ public class RestaurantService {
     private RestaurantRepository restaurantRepository;
 
     //Get
-    public List<Restaurant> getAll() {
-        return restaurantRepository.findAll();
+    public List<RestaurantProjection> getAll() {
+        return restaurantRepository.findAllRestaurants();
+    }
+
+    public Restaurant findByID(Integer id) {
+        return restaurantRepository.findByRestaurantId(id);
     }
 
     public List<Restaurant> getByName(String ResturantName){
@@ -30,5 +35,16 @@ public class RestaurantService {
         return restaurantRepository.findCuisineTypeId(cuisineTypeID);
     }
 
+    public List<Restaurant> findRestaurants(String name, String location, String cuisineType, Double rating) {
+        return restaurantRepository.findRestaurants(name, location, cuisineType, rating);
+    }
+
+    public List<String> findDistinctLocations(){
+        return restaurantRepository.findDistinctLocations();
+    }
+
+    public List<String> findDistinctCuisines(){
+        return restaurantRepository.findDistinctCuisines();
+    }
     
 }

@@ -1,0 +1,148 @@
+
+
+.heading-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px 20px; /* Adjust padding for responsive design */
+  }
+  
+  .page-heading {
+    font-size: 2.5rem;
+    // font-weight: bold;
+    text-align: center;
+    color: #333;
+    flex-grow: 1;
+  }
+  
+  .add-itinerary-btn {
+    display: inline-flex;
+    align-items: center;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-transform: capitalize;
+    cursor: pointer;
+  
+    &:hover {
+      background-color: #45a049;
+      transform: scale(1.05);
+    }
+  
+    mat-icon {
+      margin-right: 10px;
+      font-size: 1.6rem;
+    }
+  }
+  
+  .masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    padding: 20px;
+  }
+  
+  .masonry-item {
+    position: relative;
+    width: 100%;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .itinerary-card {
+    position: relative;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .itinerary-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #ddd;
+    filter: brightness(60%); 
+  }
+  
+  .itinerary-content {
+    padding: 15px;
+  }
+  
+  .itinerary-description {
+    padding-top: 10px;
+    color: #555;
+  }
+  
+  /* Icons container for edit and delete */
+  .itinerary-icons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+  }
+  
+  .itinerary-icons mat-icon {
+    cursor: pointer;
+    font-size: 24px;
+    color: white; /* Set the icons to white */
+    transition: color 0.3s ease;
+  }
+  
+  .itinerary-icons mat-icon:hover {
+    color: #ff4d4d; /* Optional: Red color on hover for better visibility */
+  }
+
+  /* View Itinerary button */
+  .view-itinerary-btn {
+    margin-top: 10px;
+  }
+  
+  /* Hover effect (keeps it fun without hiding content) */
+  .itinerary-card:hover {
+    transform: scale(1.05); /* Zoom effect on hover */
+  }
+  
+
+  /* View Itinerary Button Styling */
+.view-itinerary-btn {
+  background-color: #28a745; /* Green background */
+  cursor: pointer;
+  color: white; /* White text */
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  border: none; /* Remove default border */
+
+  /* Ensure it appears raised */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.05); /* Slightly scale up on hover */
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); /* Increased shadow on hover */
+  }
+
+  &:focus {
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.6); /* Green glow when focused */
+  }
+
+  &:active {
+    background-color: #1e7e34; /* Even darker green when button is pressed */
+    transform: scale(1); /* Reset scaling */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Reset shadow */
+  }
+}

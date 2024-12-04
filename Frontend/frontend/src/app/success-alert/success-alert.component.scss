@@ -1,0 +1,47 @@
+.success-alert {
+    position: relative;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 50px; /* Ensure the alert is full-width */
+    background-color: #4caf50;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    overflow: hidden; /* Ensures the progress bar stays within the div */
+  }
+  
+  .progress-bar-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0; /* Initial width will be updated by the progress bar */
+    height: 100%;
+    background-color: #388e3c; /* A green shade for the progress bar */
+    z-index: 0; /* Progress bar is in the background */
+    transition: width 0.5s linear;
+  }
+  
+  .alert-text {
+    z-index: 1; /* Ensure the text is above the progress bar */
+    position: relative; /* To maintain stacking order */
+    display: inline-block;
+    padding-right: 40px; /* Make space for the close button */
+  }
+  
+  .close-btn {
+    z-index: 1; /* Make sure the button is on top */
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+  }
+  
+  
+
