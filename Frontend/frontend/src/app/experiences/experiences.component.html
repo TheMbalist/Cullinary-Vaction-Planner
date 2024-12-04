@@ -1,1 +1,46 @@
-<p>experiences works!</p>
+<div class="heading-container">
+  <h1 class="page-heading">Experiences</h1>
+  <button mat-icon-button color="primary" class="add-itinerary-btn" routerLink="/create-experiences">
+    <mat-icon>add</mat-icon> Create New Experience
+  </button>
+</div>
+<div class="experience-list">
+   
+    <div *ngFor="let experience of experiences" class="experience-card" 
+      [ngStyle]="{'background-image': 'url(\'/assets/restaurantimage2.jpg\')'}">
+      <div class="overlay">
+        <!-- Default Info: Title, Description, Date, Price -->
+        <div class="default-info">
+          <div class="itinerary-icons">
+            <mat-icon (click)="openEditDialog(experience)" >edit</mat-icon>
+            <mat-icon (click)="openDeleteDialog(experience)">delete</mat-icon>
+          </div>
+          <h3>{{ experience.title }}</h3> 
+          <p>{{ experience.description }}</p>
+          <p><strong>Date:</strong> {{ experience.dateTime | date:'medium' }}</p>
+          <p><strong>Price:</strong> R{{ experience.price }} per person</p>
+        </div>
+  
+        <!-- Hidden Info: Venue Name, Location, and Button -->
+        <div class="hidden-info" *ngIf="experience.restaurantId == null">
+          <p><strong>Venue Name:</strong> {{ experience.venueName }}</p>
+          <p><strong>Location:</strong> {{ experience.venueLocation }}</p>
+          <button class="add-button" (click)="openItineraryModal(experience)">Add to Itinerary</button>
+        </div>
+
+        <div class="hidden-info" *ngIf="experience.restaurantId != null">
+          <p><strong>Venue Name:</strong> {{ experience.restaurantName }}</p>
+          <p><strong>Location:</strong> {{ experience.restaurantLocation}}</p>
+          <button class="add-button" (click)="openItineraryModal(experience)">Add to Itinerary</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <mat-paginator 
+[length]="totalExperiences" 
+[pageSize]="itemsPerPage" 
+[pageSizeOptions]="[12, 24, 48]" 
+(page)="onPageChange($event)">
+</mat-paginator>
+  

@@ -1,19 +1,32 @@
 <div class="heading-container">
     <h1 class="page-heading">My Itineraries</h1>
     <button mat-icon-button color="primary" class="add-itinerary-btn" routerLink="itinerary-form">
-      <mat-icon>add</mat-icon> Add Itinerary
+      <mat-icon>add</mat-icon> Create New Itinerary
     </button>
   </div>
-  
-<div class="masonry-grid">
-    <div class="masonry-item" *ngFor="let itinerary of itineraries">
+  <div class="masonry-grid">
+    <div class="masonry-item" *ngFor="let itinerary of paginatedItineraries">
       <div class="itinerary-card">
         <img src="/assets/restaurantimage4.jpg" alt="Random image" class="itinerary-image" />
+  
+        <!-- Itinerary content -->
         <div class="itinerary-content">
           <h3>{{ itinerary.title }}</h3>
+  
+          <!-- Edit and Delete Icons (visible on hover) -->
+          <div class="itinerary-icons">
+            <mat-icon (click)="openEditDialog(itinerary)">edit</mat-icon>
+            <mat-icon (click)="openDeleteDialog(itinerary)">delete</mat-icon>
+          </div>
+  
           <div class="itinerary-description">
             <p>{{ itinerary.description }}</p>
           </div>
+  
+          <!-- View Itinerary Button (visible on hover) -->
+          <button mat-raised-button color="primary" class="view-itinerary-btn" routerLink="/itinerary/{{itinerary.itineraryId}}">
+            View Itinerary
+          </button>
         </div>
       </div>
     </div>

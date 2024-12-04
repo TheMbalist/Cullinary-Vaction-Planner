@@ -16,6 +16,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Integer>
     // You can add custom query methods here if needed
 
     //List<Restaurant> findByCuisineType(CuisineType cuisineType);
+    Restaurant findByRestaurantId(Integer restaurantId);
     List<Restaurant> findByName(String name);
     List<Restaurant> findByLocation(String location);
     List<Restaurant> findByDescription(String description);
@@ -23,7 +24,7 @@ public interface RestaurantRepository extends JpaRepository<Restaurant, Integer>
     @Query(value = "SELECT r.Name, r.Location, r.description, r.rating, c.cusine_type FROM Restaurants r INNER JOIN Cusine_Types c ON r.cuisine_type_id = c.cusine_type_id WHERE c.cusine_type_id = :cuisineTypeId", nativeQuery = true)
       List<Object[]> findCuisineTypeId(Integer cuisineTypeId);
 
-      @Query(value = "SELECT r.Name as name, r.Location as location, r.Description as description, r.Rating as rating, c.cusine_type as cuisineType FROM Restaurants r INNER JOIN Cusine_Types c ON r.cuisine_type_id = c.cusine_type_id", nativeQuery = true)
+      @Query(value = "SELECT r.restaurant_id as id, r.Name as name, r.Location as location, r.Description as description, r.Rating as rating, c.cusine_type as cuisineType FROM Restaurants r INNER JOIN Cusine_Types c ON r.cuisine_type_id = c.cusine_type_id", nativeQuery = true)
       List<RestaurantProjection> findAllRestaurants();
 
       @Query(value = "SELECT r.* FROM Restaurants r "

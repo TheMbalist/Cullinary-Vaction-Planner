@@ -1,0 +1,70 @@
+.experience-form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .scrollable-dialog {
+    max-height: 80vh; /* Ensures the dialog doesn’t take up the entire viewport */
+    overflow-y: auto; /* Allows scrolling when content exceeds the max height */
+    padding: 16px; /* Optional padding for aesthetics */
+  }
+  
+  .mat-dialog-container {
+    max-height: 90vh; /* Ensure the dialog itself doesn't overflow the viewport */
+    overflow-y: auto; /* Enables scrolling for long content */
+  }
+  
+  
+  .form-header {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #3f51b5;
+  }
+  
+  .form-field {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  
+  .venue-selection {
+    margin: 20px 0;
+  }
+  
+  .radio-option {
+    margin-right: 16px;
+  }
+  
+  .conditional-field {
+    margin-top: 20px;
+  }
+  
+  .datetime-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background: #fff;
+  }
+  
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .cancel-button {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  .save-button {
+    background-color: #4caf50;
+    color: white;
+  }
+  

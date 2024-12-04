@@ -30,7 +30,7 @@ public class Itinerary {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "is_public")
+    @Column(name = "is_public", columnDefinition = "BIT")
     private Boolean isPublic;
 
    
@@ -42,7 +42,7 @@ public class Itinerary {
     // private User created_by;
 
     @Column(name = "updated_at")
-    private Date updatedAt;
+    private LocalDateTime updatedAt;
 
     // @ManyToOne
     // @JoinColumn(name = "updated_by", nullable = true)
@@ -96,29 +96,15 @@ public class Itinerary {
         this.createdAt = createdAt;
     }
 
-    // public User getCreated_by() {
-    //     return created_by;
-    // }
 
-    // public void setCreated_by(User created_by) {
-    //     this.created_by = created_by;
-    // }
-
-    public Date getUpdatedAt() {
+    public LocalDateTime getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    // public User getUpdated_by() {
-    //     return updated_by;
-    // }
-
-    // public void setUpdated_by(User updated_by) {
-    //     this.updated_by = updated_by;
-    // }
 
 
   

@@ -1,0 +1,45 @@
+<div class="header" [ngStyle]="{'background-image': 'url(\'/assets/restaurantimage3.jpeg\')'}">
+  <div class="header-overlay">
+    <h1>{{ itinerary.title }}</h1>
+    <p>{{ itinerary.description }}</p>
+  </div>
+</div>
+
+<!-- Stylish Back Button with Icon -->
+<button class="back-btn" routerLink="/itinerary">
+  <i class="fas fa-arrow-left"></i> Back
+</button>
+
+<!-- Itinerary Items Section -->
+<div class="itinerary-items">
+  <h3>Itinerary Items</h3>
+
+  <!-- Current & Upcoming Items -->
+  <div *ngFor="let item of currentItineraryItems" class="itinerary-item-card">
+    <div class="item-details">
+     
+      <h4>{{ item.title }}</h4>
+      <p>{{ item.description }}</p>
+      <p><strong>Date:</strong> {{ item.date_Time | date:'medium' }}</p>
+      <p><strong>Notes:</strong> {{ item.notes }}</p>
+      <p><strong>Venue:</strong> {{ item.venueName }}</p>
+      <p><strong>Location:</strong> {{ item.venueLocation }}</p>
+    </div>
+    <!-- Display Remove Button only if the item is in the future -->
+    <button class="delete-btn" *ngIf="!isPastDate(item.date_Time)" (click)="removeItineraryItem(item.itinerary_item_id)">×</button>
+  </div>
+
+  <!-- Past Items Section -->
+  <h3 class="past-items-heading" *ngIf="pastItineraryItems.length > 0">Past Events</h3>
+  <div *ngFor="let item of pastItineraryItems" class="itinerary-item-card past">
+    <div class="item-details">
+      <h4>{{ item.title }}</h4>
+      <p>{{ item.description }}</p>
+      <p><strong>Date:</strong> {{ item.date_Time | date:'medium' }}</p>
+      <p><strong>Notes:</strong> {{ item.notes }}</p>
+      <p><strong>Venue:</strong> {{ item.venueName }}</p>
+      <p><strong>Location:</strong> {{ item.venueLocation }}</p>
+    </div>
+    <!-- Remove Button is hidden for past items -->
+  </div>
+</div>

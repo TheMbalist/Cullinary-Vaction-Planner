@@ -10,11 +10,15 @@ export class ItineraryService {
   constructor(private http: HttpClient) { }
 
 
-  // Get a single itinerary by ID
-  getItineraryById(userId: number): Observable<Itinerary[]> {
+
+  getUserItineraries(userId: number): Observable<Itinerary[]> {
     return this.http.get<Itinerary[]>(`${this.apiUrl}/user/${userId}`);
   }
 
+
+  getItienraryByID(id: number): Observable<Itinerary[]> {
+    return this.http.get<Itinerary[]>(`${this.apiUrl}/itinerary/${id}`);
+  }
   getItineraries(): Observable<Itinerary[]> {
     return this.http.get<Itinerary[]>(`${this.apiUrl}/all`);
   }
@@ -30,8 +34,8 @@ export class ItineraryService {
     return this.http.put<Itinerary>(`${this.apiUrl}/editItinerary/${id}`, itinerary);
   }
 
-  // // Delete an itinerary
-  // deleteItinerary(id: number): Observable<void> {
-  //   return this.http.delete<void>(`${this.apiUrl}/${id}`);
-  // }
+  // Delete an itinerary
+  deleteItinerary(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/deleteItinerary/${id}`, );
+  }
 }

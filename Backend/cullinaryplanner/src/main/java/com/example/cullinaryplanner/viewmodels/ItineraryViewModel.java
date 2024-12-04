@@ -7,7 +7,7 @@ public class ItineraryViewModel {
     private String title;
     private String description;
     private Integer userId;
-    private Boolean is_Public;
+    private Boolean isPublic;
     private LocalDateTime  Created_at;
 
 
@@ -29,11 +29,11 @@ public class ItineraryViewModel {
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
-    public Boolean getIs_Public() {
-        return is_Public;
+    public Boolean getIsPublic() {
+        return isPublic;
     }
-    public void setIs_Public(Boolean is_Public) {
-        this.is_Public = is_Public;
+    public void setIsPublic(Boolean isPublic) {
+        this.isPublic = isPublic;
     }
     public LocalDateTime  getCreated_at() {
         return Created_at;

@@ -1,16 +1,19 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { Itinerary } from '../models/itinerary';
 import { ItineraryService } from '../services/itinerary.service';
-import { RouterLink } from '@angular/router';
+import { RouterLink, Router, Route } from '@angular/router';
 import * as Masonry from 'masonry-layout';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { MatIcon } from '@angular/material/icon';
 import { MatPaginator, PageEvent } from '@angular/material/paginator';
-
+import { EditItineraryDialogComponent } from '../edit-itinerary-dialog/edit-itinerary-dialog.component';
+import { DeleteItineraryDialogComponent } from '../delete-itinerary-dialog/delete-itinerary-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
+import { AlertserviceService } from '../services/alertservice.service';
 @Component({
   selector: 'app-itenerary',
   standalone: true,
-  imports: [RouterLink, NgFor, MatIcon, MatPaginator],
+  imports: [RouterLink, NgFor, MatIcon, MatPaginator, NgIf],
   templateUrl: './itenerary.component.html',
   styleUrl: './itenerary.component.scss'
 })
@@ -29,10 +32,11 @@ export class IteneraryComponent implements OnInit{
   itemsPerPage: number = 12;  // Default number of items per page
   totalItineraries: number = 0;  // Total number of restaurants
   currentPage: number = 0;
+  
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private itineraryService: ItineraryService) {}
+  constructor(private itineraryService: ItineraryService, private dialog: MatDialog, private router: Router, private alertService: AlertserviceService) {}
 
   ngOnInit(): void {
     this.loadItineraries();
@@ -68,5 +72,82 @@ export class IteneraryComponent implements OnInit{
       this.paginateData();
     }
   
+
+    openEditDialog(itinerary: Itinerary): void {
+      const dialogRef = this.dialog.open(EditItineraryDialogComponent, {
+        width: '400px',
+        data: { title: itinerary.title, description: itinerary.description, isPublic: itinerary.isPublic }
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          // Handle the updated data and update itinerary
+          this.updateItinerary(itinerary.itineraryId, result);
+          
+          
+        }
+        
+      });
+    }
+  
+    updateItinerary(id:number, updatedItinerary: Itinerary) {
+      // Call your service to update the itinerary here
+      //console.log(updatedItinerary)
+      this.itineraryService.updateItinerary(id, updatedItinerary).subscribe(
+        () => {
+     
+          
+        // Show success alert
+        this.alertService.showSuccessAlert('Your changes have been successfully made!');
+    
+         
+        },
+        (error) => {
+          // Handle error response
+          console.error('Error updating itinerary', error);
+    
+       // Show error alert
+       this.alertService.showErrorAlert('Error. Please try again or contact us if the issue persists.');
+        }
+      );
+    }
+
+
+   
+  openDeleteDialog(itinerary:Itinerary): void {
+    const dialogRef = this.dialog.open(DeleteItineraryDialogComponent, {
+      width: '400px',
+      data: { id: itinerary.itineraryId, title: itinerary.title }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // Handle deletion of itinerary
+        this.deleteItinerary(result);
+      }
+    });
+  }
+
+  deleteItinerary(id:number) {
+    // Call your service to delete the itinerary here
+    this.itineraryService.deleteItinerary(id).subscribe(
+      () => {
+
+        // Show success alert
+        this.alertService.showSuccessAlert('Your itinerary has been sucessfully deleted!');
+  
+       
+      
+      },
+      (error) => {
+        // Handle error response
+        console.error('Error deleting itinerary', error);
+  
+        // Show error alert
+        this.alertService.showErrorAlert('Error. Please try again or contact us if the issue persists.');
+      }
+    );
+   
+  }
 
 }

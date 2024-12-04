@@ -1,0 +1,139 @@
+<form (ngSubmit)="saveChanges()" #editExperienceForm="ngForm"  class="experience-form scrollable-dialog"
+>
+    <h2 class="form-header">Edit Experience</h2>
+  
+    <!-- Title Field -->
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Title</mat-label>
+      <input
+        matInput
+        type="text"
+        id="title"
+        [(ngModel)]="data.title"
+        name="title"
+        required
+      />
+    </mat-form-field>
+  
+    <!-- Description Field -->
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Description</mat-label>
+      <input
+        matInput
+        type="text"
+        id="description"
+        [(ngModel)]="data.description"
+        name="description"
+        required
+      />
+    </mat-form-field>
+  
+    <!-- Venue Selection Toggle -->
+    <div class="venue-selection">
+      <h3>Venue</h3>
+      <mat-radio-group [(ngModel)]="useRestaurant" name="venueSelection" required>
+        <mat-radio-button value="Select a Restaurant">Select a Restaurant</mat-radio-button>
+        <mat-radio-button value="Enter Venue & Location Manually">Enter Venue & Location Manually</mat-radio-button>
+    </mat-radio-group>
+  
+    </div>
+  
+    <!-- Restaurant Selection Field (conditional) -->
+    <div *ngIf="useRestaurant === 'Select a Restaurant'" class="conditional-field">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Select Restaurant</mat-label>
+        <mat-select [(ngModel)]="data.selectedRestaurant" name="restaurant" required>
+          <mat-option *ngFor="let restaurant of restaurants" [value]="restaurant">
+            {{ restaurant.name }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  
+    0.
+.
+
+0.
+<!-- Venue & Location Fields (conditional) -->
+    <div *ngIf="useRestaurant === 'Enter Venue & Location Manually'" class="conditional-field">
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Venue</mat-label>
+        <input
+          matInput
+          type="text"
+          id="venue"
+          [(ngModel)]="data.venueName"
+          name="venue"
+          required
+        />
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill" class="form-field">
+        <mat-label>Location</mat-label>
+        <input
+          matInput
+          type="text"
+          id="location"
+          [(ngModel)]="data.venueLocation"
+          name="location"
+          required
+        />
+      </mat-form-field>
+    </div>
+  
+    <!-- Date & Time Field -->
+    <div class="form-field">
+      <label for="date_time">Date & Time</label>
+      <input
+        type="datetime-local"
+        id="date_time"
+        [(ngModel)]="data.dateTime"
+        name="dateTime"
+        [min]="minDateTime"
+        required
+        class="datetime-input"
+      />
+    </div>
+  
+    <!-- Price Field -->
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Price</mat-label>
+      <input
+        matInput
+        type="number"
+        id="price"
+        [(ngModel)]="data.price"
+        name="price"
+        required
+      />
+    </mat-form-field>
+  
+    <!-- Notes Field -->
+    <mat-form-field appearance="fill" class="form-field">
+      <mat-label>Notes</mat-label>
+      <textarea matInput id="notes" [(ngModel)]="data.notes" name="notes"></textarea>
+    </mat-form-field>
+  
+    <!-- Buttons -->
+    <div class="form-buttons">
+      <button
+        mat-raised-button
+        color="warn"
+        type="button"
+        [routerLink]="'/experiences'"
+        class="cancel-button"
+      (onClick)="onCancel()">
+        Cancel
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="editExperienceForm.invalid"
+        class="save-button"
+      >
+        Save Changes
+      </button>
+    </div>
+  </form>
+  

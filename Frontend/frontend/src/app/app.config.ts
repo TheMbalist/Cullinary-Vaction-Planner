@@ -17,6 +17,10 @@ import { RouterModule } from '@angular/router';
 import * as Masonry from 'masonry-layout';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DatePipe } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatRadioModule } from '@angular/material/radio';
 
 
 
@@ -34,6 +38,10 @@ export const appConfig: ApplicationConfig = {
               RouterModule,
               MatSlideToggleModule,
               MatButtonModule,
+              MatDialogModule,
+              DatePipe,
+              FormsModule,
+              MatRadioModule,
               provideRouter(routes), 
               provideAnimationsAsync(),  
               provideHttpClient()]

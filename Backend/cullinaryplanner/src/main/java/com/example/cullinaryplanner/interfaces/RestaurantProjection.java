@@ -6,5 +6,6 @@ public interface RestaurantProjection {
     String getDescription();
     Double getRating();
     String getCuisineType();
+    Integer getId();
     
 }

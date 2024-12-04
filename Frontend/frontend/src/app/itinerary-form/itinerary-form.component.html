@@ -1,3 +1,5 @@
+<h1>Create Itinerary</h1>
+
 <form (ngSubmit)="saveItinerary()" class="itinerary-form">
   <mat-form-field appearance="fill" class="form-field">
     <mat-label>Title</mat-label>
@@ -21,8 +23,9 @@
     > 
     </mat-slide-toggle>
   </div>
-
-  <div class="submit-button">
+  <div class="buttons">
+    <button class="cancel" mat-raised-button color="primary"  type="button" [routerLink]="['/itinerary']">Cancel</button>
+  
     <button mat-raised-button color="primary" type="submit">Create Itinerary</button>
   </div>
 </form>

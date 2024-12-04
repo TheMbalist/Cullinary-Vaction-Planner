@@ -43,6 +43,13 @@ public class ItineraryController {
     }
 
     
+    @GetMapping("/itinerary/{id}")
+    public Itinerary getItinerariesByID(@PathVariable Integer id) {
+        return itineraryService.getItineraryById(id);
+
+    }
+
+    
     @GetMapping("/all")
     public List<Itinerary> getAllItineraries() {
         return itineraryService.getItineraries();
@@ -68,15 +75,19 @@ public class ItineraryController {
 
        // Integer userID = newItinerary.getUserId();
         User user = userService.findById(userId);
-    
-        System.out.println(newItinerary.toString());
+
+      
+        System.out.println("Title " + newItinerary.getTitle());
+        System.out.println("Description " + newItinerary.getDescription());
+        System.out.println("Is Public " + newItinerary.getIsPublic());
     // Create the new itinerary
     Itinerary itinerary = new Itinerary();
     itinerary.setUser(user); // Set the user based on the received userId
     itinerary.setTitle(newItinerary.getTitle());
     itinerary.setDescription(newItinerary.getDescription());
     
-    itinerary.setIsPublic(newItinerary.getIs_Public());
+    Boolean isPublic = newItinerary.getIsPublic();
+    itinerary.setIsPublic(isPublic);
     itinerary.setCreatedAt(LocalDateTime.now());
     
     

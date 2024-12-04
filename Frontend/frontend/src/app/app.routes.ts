@@ -6,7 +6,9 @@ import { RestaurantListingComponentComponent } from './restaurant-listing-compon
 import { HomeComponent } from './home/home.component';
 import { IteneraryComponent } from './itenerary/itenerary.component';
 import { ExperiencesComponent } from './experiences/experiences.component';
+import { CreateExperienceComponent } from './create-experience/create-experience.component';
 import { ItineraryFormComponent } from './itinerary-form/itinerary-form.component';
+import { ViewItineraryComponent } from './view-itinerary/view-itinerary.component';
 
 export const routes: Routes = [
 
@@ -20,22 +22,31 @@ export const routes: Routes = [
     { path: '', redirectTo: '/experiences', pathMatch: 'full' },
     { path: 'experiences', component: ExperiencesComponent },
 
-    { path: '', redirectTo: '/itenerary', pathMatch: 'full' },
-    { path: 'itenerary', component: IteneraryComponent },
+    { path: '', redirectTo: '/itinerary', pathMatch: 'full' },
+    { path: 'itinerary', component: IteneraryComponent },
 
-    { path: '', redirectTo: '/itenerary-form', pathMatch: 'full' },
-    { path: 'itenerary-form', component: ItineraryFormComponent },
+    { path: '', redirectTo: '/itinerary-form', pathMatch: 'full' },
+    { path: 'itinerary-form', component: ItineraryFormComponent },
 
     { path: 'home', component: HomeComponent },
-  { path: 'itenerary', component: IteneraryComponent },
+  { path: 'itinerary', component: IteneraryComponent },
   { path: 'experiences', component: ExperiencesComponent },
   { path: 'restaurants', component: RestaurantListingComponentComponent },
+  { path: 'create-experiences', component: CreateExperienceComponent },
 
 
-  { path: 'itenerary/itinerary-form', component: ItineraryFormComponent },
-  { path: 'itinerary-form/itenerary', component: IteneraryComponent },
-//   { path: 'profile', component: ProfileComponent },
-  { path: '', redirectTo: '/home', pathMatch: 'full' }
+  { path: 'itinerary/itinerary-form', component: ItineraryFormComponent },
+  { path: 'itinerary-form/itinerary', component: IteneraryComponent },
+
+  { path: 'itinerary/view-itinerary', component: ViewItineraryComponent },
+  { path: 'view-itinerary/itinerary', component: IteneraryComponent },
+
+  { path: 'itinerary/:id', component: ViewItineraryComponent },
+
+
+  { path: 'experiences/create-experiences', component: CreateExperienceComponent },
+  { path: 'create-experiences/experiences', component: ExperiencesComponent },
+
 ];
 
 

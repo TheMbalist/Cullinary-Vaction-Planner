@@ -70,7 +70,7 @@ export class RestaurantListingComponentComponent implements OnInit {
   paginateData() {
     const startIndex = this.currentPage * this.itemsPerPage;
     const endIndex = startIndex + this.itemsPerPage;
-    this.paginatedRestaurants = this.restaurants.slice(startIndex, endIndex);
+    this.filteredRestaurants = this.restaurants.slice(startIndex, endIndex);
   }
 
   // Handle page change event

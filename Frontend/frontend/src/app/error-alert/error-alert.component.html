@@ -1,0 +1,6 @@
+<div *ngIf="showErrorAlert" class="error-alert">
+    <div class="progress-bar-fill" [style.width.%]="progressValue"></div>
+    <span class="alert-text">{{ message }}</span>
+    <button class="close-btn" (click)="dismissAlert()">×</button>
+  </div>
+  

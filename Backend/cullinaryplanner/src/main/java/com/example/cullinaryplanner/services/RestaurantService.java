@@ -23,6 +23,10 @@ public class RestaurantService {
         return restaurantRepository.findAllRestaurants();
     }
 
+    public Restaurant findByID(Integer id) {
+        return restaurantRepository.findByRestaurantId(id);
+    }
+
     public List<Restaurant> getByName(String ResturantName){
         return restaurantRepository.findByName(ResturantName);
     }

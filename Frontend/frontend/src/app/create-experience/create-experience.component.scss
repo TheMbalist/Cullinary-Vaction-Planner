@@ -1,0 +1,78 @@
+.experience-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+  
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+  
+    .form-field {
+      width: 100%;
+    }
+  
+    .buttons {
+      display: flex;
+      justify-content: space-around;
+      gap: 30px;
+      margin-top: 7px;
+    }
+  
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+  
+    button:hover {
+      background-color: #3f51b5;
+      color: #fff;
+    }
+
+    
+
+    
+  }
+
+  button:disabled:hover{
+    background-color: #fff ;
+    cursor:not-allowed;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px; /* Space between fields */
+  }
+  
+  label {
+    font-size: 1rem; /* Label font size */
+    margin-bottom: 5px; /* Space between label and input */
+    color: rgba(0, 0, 0, 0.87); /* Label color */
+  }
+  
+  .datetime-input {
+    border: 1px solid #ccc; /* Default border color */
+    border-radius: 4px; /* Rounded corners */
+    padding: 8px; /* Spacing inside the input */
+    width: 100%; /* Full width */
+    box-shadow: none; /* Remove shadow */
+    outline: none; /* Remove outline on focus */
+  }
+  
+  .datetime-input:focus {
+    border-color: #3f51b5; /* Focus border color */
+    box-shadow: 0 0 0 0.2rem rgba(63, 81, 181, 0.25); /* Focus shadow */
+  }
+  

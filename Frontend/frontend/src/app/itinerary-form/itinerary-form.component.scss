@@ -1,3 +1,9 @@
+h1{
+  margin-top: 50px;
+  text-align: center;
+  font-size: 2rem;
+}
+
 .itinerary-form {
     display: flex;
     flex-direction: column;
@@ -25,15 +31,19 @@
     margin-left: 10px;
   }
   
-  .submit-button {
+  .buttons {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    gap:30px;
+    margin-top: 7px;
+    cursor: pointer;
   }
   
   button {
     padding: 10px 20px;
     font-size: 1rem;
     border-radius: 4px;
+    cursor: pointer;
     transition: background-color 0.3s ease;
   }
   

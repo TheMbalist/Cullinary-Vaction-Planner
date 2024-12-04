@@ -1,0 +1,16 @@
+<h2>Select an Itinerary</h2>
+<div class="itinerary-tile-container">
+  <!-- Each itinerary is represented by a clickable tile -->
+  <div 
+    *ngFor="let itinerary of itineraries" 
+    class="itinerary-tile" 
+    [ngClass]="{'selected': selectedItinerary === itinerary.itineraryId}"
+    (click)="selectItinerary(itinerary.itineraryId)">
+    
+    <h3>{{ itinerary.title }}</h3>
+  </div>
+</div>
+<div class="modal-actions">
+  <button class="cancel-button" (click)="onCancel()">Cancel</button>
+  <button class="save-button" (click)="onSave()">Save</button>
+</div>

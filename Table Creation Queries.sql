@@ -53,7 +53,7 @@ CREATE TABLE Restaurants (
 
 CREATE TABLE Experiences (
     experience_id INT PRIMARY KEY IDENTITY(1,1),
-    restaurant_id INT FOREIGN KEY REFERENCES Restaurants(restaurant_id),
+    restaurant_id INT FOREIGN KEY REFERENCES Restaurants(restaurant_id) NULL,
     title NVARCHAR(255) NOT NULL,
     description NVARCHAR(MAX),
     date_time DATETIME NOT NULL,
@@ -61,15 +61,18 @@ CREATE TABLE Experiences (
     created_at DATETIME DEFAULT GETDATE(),
 	created_by INT FOREIGN KEY REFERENCES Users(user_id),
 	updated_at DATETIME NULL,
-	updated_by INT FOREIGN KEY REFERENCES Users(user_id) NULL
+	updated_by INT FOREIGN KEY REFERENCES Users(user_id) NULL,
+    venue_name NVARCHAR(255) null,
+    venue_address NVARCHAR(255) null
 );
 
 CREATE TABLE Itinerary_Items (
-    itinerary_item_id INT PRIMARY KEY IDENTITY(1,1),
-    itinerary_id INT FOREIGN KEY REFERENCES Itineraries(itinerary_id),
-    experience_id INT FOREIGN KEY REFERENCES Experiences(experience_id),
-    date DATE NOT NULL,
-    notes NVARCHAR(MAX)
+    itinerary_item_id INT PRIMARY KEY IDENTITY(1,1) ,
+    itinerary_id INT FOREIGN KEY REFERENCES Itineraries(itinerary_id) NOT NULL,
+    experience_id INT FOREIGN KEY REFERENCES Experiences(experience_id) Null,
+    date DATETIME NULL,
+    restaurant_id INT FOREIGN KEY REFERENCES Restaurants(restaurant_id) Null,
+   
 );
 
 CREATE TABLE Followers (
