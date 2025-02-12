@@ -63,7 +63,8 @@ CREATE TABLE Experiences (
 	updated_at DATETIME NULL,
 	updated_by INT FOREIGN KEY REFERENCES Users(user_id) NULL,
     venue_name NVARCHAR(255) null,
-    venue_address NVARCHAR(255) null
+    venue_address NVARCHAR(255) null,
+    notes NVARCHAR(500)  NULL,
 );
 
 CREATE TABLE Itinerary_Items (
@@ -71,7 +72,8 @@ CREATE TABLE Itinerary_Items (
     itinerary_id INT FOREIGN KEY REFERENCES Itineraries(itinerary_id) NOT NULL,
     experience_id INT FOREIGN KEY REFERENCES Experiences(experience_id) Null,
     date DATETIME NULL,
-    restaurant_id INT FOREIGN KEY REFERENCES Restaurants(restaurant_id) Null,
+    notes NVARCHAR(500)  NULL,
+    
    
 );
 

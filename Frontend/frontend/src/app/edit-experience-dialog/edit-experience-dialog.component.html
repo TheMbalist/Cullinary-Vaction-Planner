@@ -41,19 +41,22 @@
     <!-- Restaurant Selection Field (conditional) -->
     <div *ngIf="useRestaurant === 'Select a Restaurant'" class="conditional-field">
       <mat-form-field appearance="fill" class="form-field">
-        <mat-label>Select Restaurant</mat-label>
-        <mat-select [(ngModel)]="data.selectedRestaurant" name="restaurant" required>
+        <mat-label >Restaurants</mat-label>
+       
+        <mat-select [(ngModel)]="newSelectedRestaurant" name="restaurant" required>
           <mat-option *ngFor="let restaurant of restaurants" [value]="restaurant">
             {{ restaurant.name }}
           </mat-option>
         </mat-select>
+
+        <div *ngIf="newSelectedRestaurant">
+          <span></span>
+        </div>
       </mat-form-field>
     </div>
-  
-    0.
-.
 
-0.
+    
+
 <!-- Venue & Location Fields (conditional) -->
     <div *ngIf="useRestaurant === 'Enter Venue & Location Manually'" class="conditional-field">
       <mat-form-field appearance="fill" class="form-field">

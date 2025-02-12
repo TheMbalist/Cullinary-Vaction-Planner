@@ -110,7 +110,36 @@
     transform: scale(1.05); /* Zoom effect on hover */
   }
   
-
+  .button-and-information {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 90px;
+  }
+  
+  .view-itinerary-btn {
+    margin-bottom: 10px; /* Adjust spacing between button and text */
+  }
+  
+  .profile-type {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5px; /* Adjust spacing between button and text */
+  }
+  
+  .icon {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 24px; /* Adjust icon size */
+  }
+  
+  .profile-text {
+    margin: 0; /* Remove default margins on <h4> */
+    font-size: 16px; /* Adjust text size */
+  }
+  
+  
   /* View Itinerary Button Styling */
 .view-itinerary-btn {
   background-color: #28a745; /* Green background */

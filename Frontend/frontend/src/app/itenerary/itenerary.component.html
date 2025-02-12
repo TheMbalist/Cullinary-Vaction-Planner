@@ -24,10 +24,24 @@
           </div>
   
           <!-- View Itinerary Button (visible on hover) -->
-          <button mat-raised-button color="primary" class="view-itinerary-btn" routerLink="/itinerary/{{itinerary.itineraryId}}">
-            View Itinerary
-          </button>
-        </div>
+          <div class="button-and-information">
+            <!-- View Itinerary Button -->
+            <button mat-raised-button color="primary" class="view-itinerary-btn" routerLink="/itinerary/{{itinerary.itineraryId}}">
+              View Itinerary
+            </button>
+          
+            <!-- Profile Type Text & Icon -->
+            <div *ngIf="itinerary.isPublic" class="profile-type">
+              <mat-icon class="icon">public</mat-icon>
+              <h5 class="profile-text">Public</h5>
+            </div>
+          
+            <div *ngIf="!itinerary.isPublic" class="profile-type">
+              <mat-icon class="icon">lock</mat-icon>
+              <h5 class="profile-text">Private</h5>
+            </div>
+          </div>
+          
       </div>
     </div>
   </div>
@@ -37,6 +51,6 @@
 <mat-paginator 
 [length]="totalItineraries" 
 [pageSize]="itemsPerPage" 
-[pageSizeOptions]="[12, 24, 48]" 
+[pageSizeOptions]="[2, 4, 48]" 
 (page)="onPageChange($event)">
 </mat-paginator>

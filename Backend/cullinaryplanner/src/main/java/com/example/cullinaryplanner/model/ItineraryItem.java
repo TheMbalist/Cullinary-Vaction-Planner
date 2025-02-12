@@ -27,9 +27,9 @@ public class ItineraryItem {
     @JoinColumn(name = "experience_id", nullable = true)
     private Experience experience;
 
-    @ManyToOne
-    @JoinColumn(name = "restaurant_id", nullable = true)
-    private Restaurant restaurant;
+    // @ManyToOne
+    // @JoinColumn(name = "restaurant_id", nullable = true)
+    // private Restaurant restaurant;
 
   
     @Column(name = "date")
@@ -68,13 +68,13 @@ public class ItineraryItem {
         this.date = date;
     }
 
-    public Restaurant getRestaurant() {
-        return restaurant;
-    }
+    // public Restaurant getRestaurant() {
+    //     return restaurant;
+    // }
 
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
+    // public void setRestaurant(Restaurant restaurant) {
+    //     this.restaurant = restaurant;
+    // }
 
     
 

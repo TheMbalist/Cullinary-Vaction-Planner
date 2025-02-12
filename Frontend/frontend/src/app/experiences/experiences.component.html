@@ -22,17 +22,17 @@
         </div>
   
         <!-- Hidden Info: Venue Name, Location, and Button -->
-        <div class="hidden-info" *ngIf="experience.restaurantId == null">
+        <div class="hidden-info">
           <p><strong>Venue Name:</strong> {{ experience.venueName }}</p>
           <p><strong>Location:</strong> {{ experience.venueLocation }}</p>
           <button class="add-button" (click)="openItineraryModal(experience)">Add to Itinerary</button>
         </div>
 
-        <div class="hidden-info" *ngIf="experience.restaurantId != null">
+        <!-- <div class="hidden-info" *ngIf="experience.restaurantId != null">
           <p><strong>Venue Name:</strong> {{ experience.restaurantName }}</p>
           <p><strong>Location:</strong> {{ experience.restaurantLocation}}</p>
           <button class="add-button" (click)="openItineraryModal(experience)">Add to Itinerary</button>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

@@ -26,6 +26,7 @@ export class ExperienceService {
 
   
   updateExperience(id:number, updateExperience: Experience): Observable<Experience> {
+    console.log('Updated Experience in Services', updateExperience)
     return this.http.put<Experience>(`${this.apiUrl}/updateExperince/${id}`, updateExperience);
   }
 

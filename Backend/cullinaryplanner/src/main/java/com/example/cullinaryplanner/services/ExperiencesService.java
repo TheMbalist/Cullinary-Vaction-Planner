@@ -72,8 +72,8 @@ public class ExperiencesService {
         if(experienceDto.getNotes() != null){
             experience.setNotes(experienceDto.getNotes());
          }
-        if(experienceDto.getRestaurantId() != null){
-            Restaurant restaurant = restaurantService.findByID(experienceDto.getRestaurantId());
+        if(experienceDto.getRestaurantID() != null){
+            Restaurant restaurant = restaurantService.findByID(experienceDto.getRestaurantID());
             experience.setRestaurant(restaurant);
             experience.setVenue_name(restaurant.getName());
             experience.setVenue_address(restaurant.getLocation());
@@ -103,12 +103,17 @@ public class ExperiencesService {
         existingExperience.setDescription(experienceDto.getDescription());
         existingExperience.setDateTime(experienceDto.getDateTime());
         existingExperience.setPrice(experienceDto.getPrice());
-        if(experienceDto.getRestaurantId() != null && experienceDto.getRestaurantId() != existingExperience.getRestaurant().getRestaurantId()){
-            Restaurant restaurant = restaurantService.findByID(experienceDto.getRestaurantId());
+        
+        if(experienceDto.getRestaurantID() != null ){
+            Restaurant restaurant = restaurantService.findByID(experienceDto.getRestaurantID());
             existingExperience.setRestaurant(restaurant);
             existingExperience.setVenue_name(restaurant.getName());
             existingExperience.setVenue_address(restaurant.getLocation());
+      
             
+         }
+         if(experienceDto.getRestaurantID() ==  null){
+            existingExperience.setRestaurant(null);
          }
 
          if(experienceDto.getNotes() != null){

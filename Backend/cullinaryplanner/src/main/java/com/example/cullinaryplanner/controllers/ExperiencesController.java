@@ -50,8 +50,11 @@ public class ExperiencesController {
 
     @PutMapping("/updateExperince/{id}")
     public ResponseEntity<Experience> updateExperience(@PathVariable Integer id, @RequestBody ExperinceViewModel experienceDto) {
+        System.out.println("ID " + experienceDto.getRestaurantID());
         Experience updatedExperience = experiencesService.updateExperience(id, experienceDto);
-        return ResponseEntity.ok(updatedExperience);
+       
+      //  System.out.println("Location" + experienceDto.getVenueLocation());
+        return ResponseEntity.ok(null);
     }
 
 

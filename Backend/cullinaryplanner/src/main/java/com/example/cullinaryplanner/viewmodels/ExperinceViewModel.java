@@ -12,17 +12,17 @@ public class ExperinceViewModel {
     private String title;
     public ExperinceViewModel(String title, String description, LocalDateTime dateTime, Double price,
             String restaurantName, String restaurantLocation, Double restaurantRating, String cuisineType,
-            Integer restaurantId, Integer userID, String venueName, String venueLocation,
+            Integer restaurantID, Integer userID, String venueName, String venueLocation,
             String notes) {
         this.title = title;
         this.description = description;
         this.dateTime = dateTime;
         this.price = price;
-        this.restaurantName = restaurantName;
-        this.restaurantLocation = restaurantLocation;
+        // this.restaurantName = restaurantName;
+        // this.restaurantLocation = restaurantLocation;
         this.restaurantRating = restaurantRating;
         this.cuisineType = cuisineType;
-        this.restaurantId = restaurantId;
+        this.restaurantID = restaurantID;
         this.userID = userID;
         this.venueName = venueName;
         this.venueLocation = venueLocation;
@@ -33,11 +33,11 @@ public class ExperinceViewModel {
     private String description;
     private LocalDateTime dateTime;
     private Double price;
-    private String restaurantName;
-    private String restaurantLocation;
+    // private String restaurantName;
+    // private String restaurantLocation;
     private Double restaurantRating;
     private String cuisineType;
-    private Integer restaurantId; 
+    private Integer restaurantID; 
     private Integer userID;
     private String venueName;
     private String venueLocation;
@@ -69,18 +69,6 @@ public class ExperinceViewModel {
     public void setPrice(Double price) {
         this.price = price;
     }
-    public String getRestaurantName() {
-        return restaurantName;
-    }
-    public void setRestaurantName(String restaurantName) {
-        this.restaurantName = restaurantName;
-    }
-    public String getRestaurantLocation() {
-        return restaurantLocation;
-    }
-    public void setRestaurantLocation(String restaurantLocation) {
-        this.restaurantLocation = restaurantLocation;
-    }
     public Double getRestaurantRating() {
         return restaurantRating;
     }
@@ -105,11 +93,11 @@ public class ExperinceViewModel {
     public void setVenueLocation(String venueLocation) {
         this.venueLocation = venueLocation;
     }
-    public Integer getRestaurantId() {
-        return restaurantId;
+    public Integer getRestaurantID() {
+        return restaurantID;
     }
-    public void setRestaurantId(Integer restaurantId) {
-        this.restaurantId = restaurantId;
+    public void setRestaurantID(Integer restaurantID) {
+        this.restaurantID = restaurantID;
     }
 
     public String getNotes() {

@@ -31,6 +31,9 @@ export class EditExperienceDialogComponent {
   useRestaurant: string;
   minDateTime!: string;
   restaurants: Restaurant[] = [];
+  selectedRestaurant!:string;
+  newSelectedRestaurant!:any;
+  restaurantLocation!:string;
   options: string[] = ['Select a Restaurant', 'Enter Venue & Location Manually'];
   constructor(
     public dialogRef: MatDialogRef<EditExperienceDialogComponent>,
@@ -39,14 +42,22 @@ export class EditExperienceDialogComponent {
     private alertService: AlertserviceService,
     private restaurantService: RestaurantService
   ) {
+    console.log(data)
     // Determine which input type to show (restaurant or manual entry)
-    if (data.selectedRestaurant) {
+    if (data.restaurantID) {
       this.useRestaurant = 'Select a Restaurant';
+      this.selectedRestaurant = this.data.venueName;
+      this.restaurantLocation = this.data.venueLocation;
+      this.data.venueName = '';
+      this.data.venueLocation = '';
+  
   } else {
       this.useRestaurant = 'Enter Venue & Location Manually';
   }
   
-
+  
+  
+     this.loadRestaurants() 
       const tomorrow = new Date();
     // Set the time to the start of tomorrow (midnight)
     tomorrow.setDate(tomorrow.getDate() + 1);
@@ -56,8 +67,12 @@ export class EditExperienceDialogComponent {
 
   loadRestaurants() {
     // Load the restaurants from the service
-    this.restaurantService.getRestaurants().subscribe((data: Restaurant[]) => {
-      this.restaurants = data;
+    this.restaurantService.getRestaurants().subscribe((resData: Restaurant[]) => {
+      this.restaurants = resData;
+
+      this.newSelectedRestaurant = this.restaurants.find(
+        (restaurant) => restaurant.id === this.data.restaurantID
+      );
       console.log('Restaurants', this.restaurants)
      
     });
@@ -68,6 +83,18 @@ export class EditExperienceDialogComponent {
   }
 
   saveChanges(): void {
+    console.log("Before", this.data)
+
+
+    if(this.newSelectedRestaurant != null){
+      this.data.venueName = this.newSelectedRestaurant.name
+      this.data.venueLocation = this.newSelectedRestaurant.location
+      this.data.restaurantID = this.newSelectedRestaurant.id
+      console.log(this.newSelectedRestaurant.id)
+    }
+
+
+    console.log('Data',this.data)
     this.dialogRef.close(this.data);  // Pass back edited data
   }
 

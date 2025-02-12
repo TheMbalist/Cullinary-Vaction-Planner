@@ -49,6 +49,7 @@ export class IteneraryComponent implements OnInit{
       this.itineraries = data;
       this.totalItineraries = data.length;
    //   imageUrl: this.getRandomImage(); 
+      console.log(this.itineraries)
       this.paginateData();
     });
   }

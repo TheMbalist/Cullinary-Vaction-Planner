@@ -120,7 +120,7 @@ export class ExperiencesComponent {
 
   updateExperience(id:number, updatedExperience: Experience) {
     // Call your service to update the itinerary here
-    //console.log(updatedItinerary)
+    console.log('New experiecne',updatedExperience)
     this.experiencesService.updateExperience(id, updatedExperience).subscribe(
       () => {
    
